@@ -37,7 +37,7 @@
                                     <thead>
                                         <tr>
                                             <th style="width: 30px;">#</th>
-                                            <th>НАименование</th>
+                                            <th>Наименование</th>
                                             <th>Slug</th>
                                             <th>Action</th>
                                         </tr>

@@ -173,9 +173,14 @@
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user (optional) -->
+               
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="{{ asset('assets/dist/img/user2-160x160.jpg') }}" value="" class="img-circle elevation-2" alt="User Image">
+                        @if(auth()->check())
+                        <img src="{{ asset('uploads/'.Auth::user()->avatar) }}" value="" class="img-circle elevation-2" alt="User Image">
+                        @else
+                        <img src="{{ asset('/uploads/uploads/images/ejVPpqers2fCMNyApiqoPert0aq1Hwb2oxEkUlUZ.jpg') }}" value="" class="img-circle elevation-2" alt="User Image">
+                        @endif
                     </div>
                     <div class="info">
 
@@ -217,7 +222,7 @@
                         <li class="nav-item">
                             <a href="{{ route('admin.index') }}" class="nav-link">
                                 <ic class="nav-icon fas fa-home"></ic>
-                                <p>Главнаяяяя</p>
+                                <p>Главная</p>
                             </a>
                         </li>
 

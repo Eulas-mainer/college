@@ -37,12 +37,21 @@ class UserController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed',
+            'avatar' => 'image',
         ]);
-
+        if ($request->hasFile('avatar')) {
+            $photoPath = $request->file('avatar')->store('uploads/images');
+            $photoPath = str_replace('public/', '', $photoPath); 
+        } else {
+            $photoPath = 'uploads/images/ejVPpqers2fCMNyApiqoPert0aq1Hwb2oxEkUlUZ.jpg';
+        }
+        
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
+            'avatar' => $photoPath,
+            
         ]);
 
         session()->flash('success', 'Региятсрация пройдена');

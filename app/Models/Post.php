@@ -47,7 +47,7 @@ class Post extends Model
             $folder = date('Y-m-d');
             return $request->file('thumbnail')->store("images/{$folder}");
         }
-        return $image ? $image : 'images/2024-04-05/u31KZw6Usq3Qh4NHcWsx3fvhJxJDrhu3ora1u007.jpg';
+        return $image ? $image : 'images\2024-04-05\ejVPpqers2fCMNyApiqoPert0aq1Hwb2oxEkUlUZ.jpg';
     }
 
     public function getImage()
@@ -64,8 +64,8 @@ class Post extends Model
     }
     public function scopeLike($query, $field)
     {
-        return $query->whereHas('category', function($query) use ($field) {
-            $query->where('title', 'like', '%'.$field.'%');
+        return $query->whereHas('category', function ($query) use ($field) {
+            $query->where('title', 'like', '%' . $field . '%');
         });
     }
 }

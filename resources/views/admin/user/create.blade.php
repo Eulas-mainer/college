@@ -27,7 +27,7 @@
     </section>
     <!-- Main content -->
     <section class="content">
-        <div class="container-fluid">
+        <div class="container-fluid"> 
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
@@ -35,7 +35,7 @@
                             <h3 class="card-title">Новый пользователь</h3>
                         </div>
                         <!-- /.card-header -->
-                        <form action="{{ route('register.store') }}" method="post">
+                        <form action="{{ route('register.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" placeholder="Имя" name="name" value="{{old('name')}}">
@@ -69,7 +69,16 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
+                            <div class="form-group">
+                                <label for="avatar">Изображение</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" name="avatar" id="avatar"
+                                            class="custom-file-input">
+                                        <label class="custom-file-lable" for="avatar">Choose file</label>
+                                    </div>
+                                </div>
+                            </div>
                                 <div class="col-4">
                                     <button type="submit" class="btn btn-primary btn-block">Регистрироваться</button>
                                 </div>
